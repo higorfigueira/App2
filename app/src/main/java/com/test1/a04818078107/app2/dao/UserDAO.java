@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.test1.a04818078107.app2.modelo.User;
+import com.test1.a04818078107.app2.modelo.UserConfig;
 
 /**
  * Created by 04818078107 on 21/12/2017.
@@ -19,7 +20,7 @@ public class UserDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate (SQLiteDatabase db) {
-        String sql = "CREATE TABLE User (id INTEGER PRIMARY KEY, nomeR TEXT NOT NULL, email TEXT NOT NULL, senhaM TEXT NOT NULL,nomeP TEXT NOT NULL );";
+        String sql = "CREATE TABLE User (id INTEGER PRIMARY KEY, nomeR TEXT NOT NULL, email TEXT NOT NULL, senhaM TEXT NOT NULL,nomeP TEXT NOT NULL, tempoEmTempo BOOLEAN, tempoEmTempoB INTEGER, periodo BOOLEAN, periodoB TEXT, horaPorDia BOOLEAN, horaPorDiaB INTEGER);";
         db.execSQL( sql );
     }
 
@@ -43,5 +44,17 @@ public class UserDAO extends SQLiteOpenHelper {
 
     }
 
+    public void insere_Main2 (UserConfig userConfig) {
+        SQLiteDatabase db = getWritableDatabase();
 
+        ContentValues dados2 = new ContentValues(  );
+        dados2.put( "tempoEmTempo", userConfig.isTempoEmTempo());
+        dados2.put( "tempoEmTempb", userConfig.getTempoEmTempoB());
+        dados2.put( "perido", userConfig.isPerido());
+        dados2.put( "peridoB", userConfig.getPeridoB());
+        dados2.put( "horasPorDia", userConfig.);
+        dados2.put("horasPorDiaB", userConfig.getHorasPorDiaB());
+
+        db.insert( "User", null, dados2);
+    }
 }

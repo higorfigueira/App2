@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             //--------------------------------------------------------------- MSG QUE PROVA Q GUARDOU AS INFORMAÇÕES
             Toast.makeText( MainActivity.this, "Responsavel " + user.getNomeR(  ) + " Registrado", Toast.LENGTH_SHORT).show();
             finish();
-
                 UserDAO dao = new UserDAO( MainActivity.this );
                 dao.insere_Main(user);
                 dao.close();

@@ -3,6 +3,9 @@ package com.test1.a04818078107.app2;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -105,6 +108,7 @@ public class Main2Activity extends AppCompatActivity {
         } );
 
     }
+
 }
 
 
