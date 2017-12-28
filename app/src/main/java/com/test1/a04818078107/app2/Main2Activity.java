@@ -13,7 +13,11 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.test1.a04818078107.app2.dao.UserDAO;
+import com.test1.a04818078107.app2.modelo.UserConfig;
+
 import static android.widget.Toast.*;
+import static com.test1.a04818078107.app2.R.menu.menu_main;
 
 public class Main2Activity extends AppCompatActivity {
     private Switch switch_por_tempo1   = null;
@@ -26,6 +30,7 @@ public class Main2Activity extends AppCompatActivity {
     ArrayAdapter<CharSequence> adapter_periodo_block2 = null;
     ArrayAdapter<CharSequence> adapter_periodo_block3 = null;
     FloatingActionButton fab2  = null;
+    private Object userConfig;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -109,7 +114,29 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        UserDAO dao2 = new UserDAO( Main2Activity.this );
+        dao2.insere_Main2( (UserConfig) userConfig );
+        dao2.close();
+        return super.onCreateOptionsMenu( menu );
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_main:
+                Toast.makeText( Main2Activity.this, "Concluido.", Toast.LENGTH_SHORT).show();
+
+                finish();
+        }
+        return super.onOptionsItemSelected( item );
+
+    }
 }
+
 
 
 
